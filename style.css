@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+
+    font-family: "DM mono", monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(3, 1, 22);
+
+    color: white;
+}
+
+h1{
+    font-size: 53px;
+    font-weight: 900;
+    font-family: "Russo One", sans-serif;
+
+
+
+    margin: 3px 10px;
+    padding: 20px;
+
+}
+
+h3{
+    font-size: 20px;
+    margin: 10px;
+
+}
+
+dt{
+    margin: 10px;
+
+    margin-left: 30px;
+}
+
+
+
+.content{
+    background-color: rgb(3, 5, 35);
+    padding: 10px;
+
+    margin: 15px;
+
+
+    border-radius: 15px;
+}
