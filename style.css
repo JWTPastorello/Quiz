@@ -22,7 +22,7 @@ h1{
 
 
 
-    margin: 3px 10px;
+    margin: 3px;
     padding: 20px;
 
 }
@@ -49,4 +49,26 @@ dt{
 
 
     border-radius: 15px;
+}
+
+#acertos{
+    height: 30px;
+    width: 95%;
+    background-color: red;
+    
+
+    position: fixed;
+    bottom: 0;
+    border-radius: 15px 15px 0px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+strong{
+    margin: 10px;
+}
+span{
+    margin: 10px;
 }

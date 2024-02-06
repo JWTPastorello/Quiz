@@ -25,7 +25,7 @@ const perguntas = [
             "Análise de Benefícios e Custos",
             "Análise de Classificação de Itens",
         ],
-        correta: 3
+        correta: 2
     },
     {
         pergunta: "Quais são os três principais tipos de custos no CPO?",
@@ -52,7 +52,7 @@ const perguntas = [
             "CTM = Custo Fixo / Quantidade Produzida",
             "CTM = (Custo Fixo + Custo Variável) / Quantidade Produzida",
         ],
-        correta: 3
+        correta: 2
     },
     {
         pergunta: "O que é a curva de aprendizado no CPO?",
@@ -79,7 +79,7 @@ const perguntas = [
             "Uma análise das mudanças na demanda do mercado",
             "Uma análise das mudanças nos parâmetros que afetam as decisões de custo",
         ],
-        correta: 3
+        correta: 2
     },
     {
         pergunta: "Qual é o papel do orçamento no CPO?",
@@ -95,8 +95,16 @@ const perguntas = [
 //identificando Div com id quiz no html
 const quiz = document.querySelector('#quiz')
 
+const acertos = document.querySelector('#acertos')
+
 //identificando o template feito no html para mostragem
 const template = document.querySelector('template')
+
+const corretas = new Set()
+
+const totalDePerguntas = perguntas.length
+const mostrarTotal = document.querySelector('#acertos span')
+mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
 
 //Estrutura de repetição para mostrar itens 
 for(const item of perguntas) {
@@ -116,8 +124,25 @@ for(const item of perguntas) {
         //Iddentificando Span na variavel perguntas
         dt.querySelector('span').textContent = resposta
 
+        dt.querySelector('input').setAttribute('name','pergunta-' + perguntas.indexOf(item))
+        dt.querySelector('input').value = item.respostas.indexOf(resposta)
+
+        dt.querySelector('input').onchange = (event) => {
+            const estaCorreta = event.target.value == item.correta
+            corretas.delete(item)
+            if (estaCorreta) {
+                corretas.add(item)
+            }
+
+            mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
+        }
+
+
+
         //Identificando dl dentro do clone feito em quizItem e colocando em dt
         quizItem.querySelector('dl').appendChild(dt)
+
+
     }
 
     //Remover Respota das Perguntas
